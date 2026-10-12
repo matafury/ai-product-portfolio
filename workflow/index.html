@@ -66,6 +66,13 @@
   .hl .card h3{font-size:15.5px; font-family:var(--sans); font-weight:700; margin-bottom:7px}
   .hl .card p{font-size:14px; line-height:1.68; color:var(--muted)}
 
+  .intro .tbl{overflow-x:auto; margin-top:18px}
+  .intro table{border-collapse:collapse; width:100%; min-width:560px; font-size:14.2px}
+  .intro th{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; color:var(--muted); text-align:left; font-weight:400; padding:0 14px 10px 0; border-bottom:1px solid var(--line)}
+  .intro td{padding:13px 14px 13px 0; border-bottom:1px solid var(--line-soft); vertical-align:top; line-height:1.65}
+  .intro td:first-child{color:var(--ink); font-weight:500; width:18%}
+  .intro td:nth-child(2){color:var(--muted); width:41%}
+
   /* 工作流界面:主体 */
   .ui{padding-block:48px; border-top:1px solid var(--line)}
   .ui h2{font-size:24px}
@@ -106,6 +113,7 @@
   <div class="facts">
     <div class="fact"><div class="n">11 个月</div><div class="c">连续运行，仍在日更</div></div>
     <div class="fact"><div class="n">150</div><div class="c">单账号已发布作品</div></div>
+    <div class="fact"><div class="n">数小时 → 20 分钟</div><div class="c">单条成片端到端耗时</div></div>
     <div class="fact"><div class="n">3.6 万</div><div class="c">看板统计累计播放</div></div>
     <div class="fact"><div class="n">4 个</div><div class="c">打通的平台</div></div>
   </div>
@@ -123,7 +131,7 @@
   <h2>六个环节，一条命令跑完</h2>
   <p class="lede">从选题到复盘全程无人值守，中途任一环节中断可续跑，不重复已完成的部分。</p>
   <div class="steps">
-    <div class="step"><div class="i">01</div><h3>素材采集</h3><p>按账号白名单与关键词抓取公域内容，入池待选</p></div>
+    <div class="step"><div class="i">01</div><h3>公域采集</h3><p>浏览器自动化抓取公开内容，按账号白名单与关键词入池</p></div>
     <div class="step"><div class="i">02</div><h3>脚本拆解</h3><p>长文本拆成镜头级脚本，输出人物、情绪、旁白与画面描述</p></div>
     <div class="step"><div class="i">03</div><h3>批量生成</h3><p>逐镜出图、配音、字幕，多引擎互备，失败自动重试</p></div>
     <div class="step"><div class="i">04</div><h3>剪辑合成</h3><p>自动合成竖屏成片，多集拼接并生成合集封面</p></div>
@@ -137,12 +145,25 @@
   <h2>把一条内容线做成可重复运行的生产系统</h2>
   <p class="body">个人与小团队做多平台内容，瓶颈不在单条内容写得好不好，而在于缺少一套能重复执行的标准流程：每条视频都要人工选题、写稿、配图、配音、剪辑、分平台上传，一条数小时，无法稳定日更。该项目把这条链路拆成可独立重跑的环节并串成流水线，目标是让内容生产从“靠人盯”变成“可排期、可交付、结果可核实”。</p>
   <div class="hl">
+    <div class="card"><h3>公域数据采集</h3><p>用浏览器自动化维护登录态并抓取公开内容流，按账号白名单与关键词两种口径入池；支持粘贴作品链接解析并下载素材，供拆解与二创使用；入池前走台账去重。不依赖官方开放接口。</p></div>
     <div class="card"><h3>脚本自动拆解与二创</h3><p>长文本自动切分为镜头脚本，每镜输出人物、情绪、旁白与画面描述，可直接进入出图与配音，无需人工二次加工。不同内容线套用不同叙事模板。</p></div>
     <div class="card"><h3>批量生成与剪辑</h3><p>逐镜生成画面与配音并自动烧录字幕，合成竖屏成片；支持多集拼接成合集并自动生成封面，一条命令可连做多集。</p></div>
     <div class="card"><h3>多平台批量投递</h3><p>打通快手、视频号、抖音、小红书四个平台的登录态与发布流程，支持排期与一键触发，发布后自动回查核实。</p></div>
     <div class="card"><h3>质量可量化</h3><p>文案与回答质量用测评集按维度打分，以同题对照与 A/B 结果决定参数取舍，避免凭经验判断。</p></div>
     <div class="card"><h3>数据回流驱动选题</h3><p>自动回收已发作品的播放与互动数据，与题材、钩子等内容特征做关联分析，反向决定下一轮做什么。</p></div>
     <div class="card"><h3>可持续运行</h3><p>针对生成失败、限速、接口变更等情况设计重试、熔断与断点续跑，系统已连续运行 11 个月并保持日更。</p></div>
+  </div>
+  <h3 class="sub-h">提效对比</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>环节</th><th>原本的人工方式</th><th>接入工作流后</th></tr></thead>
+      <tbody>
+        <tr><td>单条成片</td><td>选题、写稿、配图、配音、剪辑逐步手工完成，一条数小时</td><td>一条命令触发，端到端约 20 分钟，期间无人值守</td></tr>
+        <tr><td>多集合辑</td><td>逐集导入剪辑软件拼接、另做封面、再导出压缩版</td><td>自动拼接并生成合集封面，同时导出上传版，数分钟完成</td></tr>
+        <tr><td>多平台发布</td><td>逐个平台登录、上传、填写标题标签，发完还要自己翻后台确认</td><td>批量排期投递，发布后自动读取平台后台核对标题与总数</td></tr>
+        <tr><td>效果复盘</td><td>手工导出各平台数据再汇总表格</td><td>按周期自动回收播放与互动数据，与内容特征关联后输出对比</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
